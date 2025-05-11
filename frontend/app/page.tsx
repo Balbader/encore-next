@@ -34,15 +34,12 @@ interface Planet {
 }
 
 export default async function Home() {
-	const people: SWAPIResponse<Person>  = await ky
+	const people: SWAPIResponse<Person> = await ky
 		.get('https://swapi.tech/api/people')
 		.json();
 	const planets: SWAPIResponse<Planet> = await ky
 		.get('https://swapi.tech/api/planets')
 		.json();
-
-	console.log(people);
-	console.log(planets);
 
 	return (
 		<>

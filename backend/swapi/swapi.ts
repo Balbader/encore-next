@@ -43,6 +43,7 @@ export const getPeople = api(
 	async (): Promise<SWAPIResponse<Person>> => {
 		const response: Response = await fetch('https://swapi.tech/api/people/');
 		const data: SWAPIResponse<Person> = await response.json();
+		console.log('Person data from backend', data);
 		return data;
 	},
 );
@@ -57,6 +58,7 @@ export const getPlanets = api(
 	async (): Promise<SWAPIResponse<Planet>> => {
 		const response: Response = await fetch('https://swapi.tech/api/planets/');
 		const data: SWAPIResponse<Planet> = await response.json();
+		console.log('Planet data from backend', data);
 		return data;
 	},
 );
