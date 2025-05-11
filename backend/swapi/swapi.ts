@@ -37,13 +37,10 @@ export const getPeople = api(
 	{
 		method: 'GET',
 		path: '/swapi/people',
-		expose: true,
-		auth: false,
 	},
 	async (): Promise<SWAPIResponse<Person>> => {
 		const response: Response = await fetch('https://swapi.tech/api/people/');
 		const data: SWAPIResponse<Person> = await response.json();
-		console.log('Person data from backend', data);
 		return data;
 	},
 );
@@ -52,13 +49,10 @@ export const getPlanets = api(
 	{
 		method: 'GET',
 		path: '/swapi/planets',
-		expose: true,
-		auth: false,
 	},
 	async (): Promise<SWAPIResponse<Planet>> => {
 		const response: Response = await fetch('https://swapi.tech/api/planets/');
 		const data: SWAPIResponse<Planet> = await response.json();
-		console.log('Planet data from backend', data);
 		return data;
 	},
 );
