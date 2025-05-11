@@ -1,5 +1,38 @@
 import { api } from 'encore.dev/api';
 
+interface SWAPIResponse<T> {
+	message: string;
+	total_records: number;
+	total_pages: number;
+	previous: string | null;
+	next: string | null;
+	results: T[];
+	apiVersion: string;
+	timestamp: string;
+	support: {
+		contact: string;
+		donate: string;
+		partnerDiscounts: Record<string, unknown>;
+	};
+	social: {
+		discord: string;
+		reddit: string;
+		github: string;
+	};
+}
+
+interface Person {
+	uid: string;
+	name: string;
+	url: string;
+}
+
+interface Planet {
+	uid: string;
+	name: string;
+	url: string;
+}
+
 export const getPeople = api(
 	{
 		method: 'GET',
@@ -7,9 +40,9 @@ export const getPeople = api(
 		expose: true,
 		auth: false,
 	},
-	async () => {
-		const response = await fetch('https://swapi.tech/api/people/');
-		const data = await response.json();
+	async (): Promise<SWAPIResponse<Person>> => {
+		const response: Response = await fetch('https://swapi.tech/api/people/');
+		const data: SWAPIResponse<Person> = await response.json();
 		return data;
 	},
 );
@@ -21,9 +54,9 @@ export const getPlanets = api(
 		expose: true,
 		auth: false,
 	},
-	async () => {
-		const response = await fetch('https://swapi.tech/api/planets/');
-		const data = await response.json();
+	async (): Promise<SWAPIResponse<Planet>> => {
+		const response: Response = await fetch('https://swapi.tech/api/planets/');
+		const data: SWAPIResponse<Planet> = await response.json();
 		return data;
 	},
 );
