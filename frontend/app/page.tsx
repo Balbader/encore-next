@@ -41,9 +41,6 @@ export default async function Home() {
 		.get('http://localhost:4000/swapi/planets')
 		.json();
 
-	console.log(people);
-	console.log(planets);
-
 	return (
 		<>
 			<div className="flex flex-col gap-4">
