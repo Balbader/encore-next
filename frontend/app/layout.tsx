@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 const navLinks = [
 	{ href: '/', label: 'Home' },
 	{ href: '/admin', label: 'Admin Dashboard' },
+	{ href: '/contact', label: 'Contact' },
 ];
 
 export default function RootLayout({
