@@ -21,6 +21,7 @@ interface SWAPIResponse<T> {
 		github: string;
 	};
 }
+
 interface Person {
 	uid: string;
 	name: string;
