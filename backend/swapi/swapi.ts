@@ -7,7 +7,7 @@ interface SWAPIResponse<T> {
 	total_pages: number;
 	previous: string | null;
 	next: string | null;
-	results: T[]; // Array of the specific resource type (Person, Planet, etc.)
+	results: T[];
 	apiVersion: string;
 	timestamp: string;
 	support: {
@@ -44,7 +44,9 @@ export const getPeople = api(
 	},
 	async (): Promise<SWAPIResponse<Person>> => {
 		// Fetch people data from the external SWAPI.tech API
-		const response: Response = await fetch('https://swapi.tech/api/people/');
+		const response: Response = await fetch(
+			'https://swapi.tech/api/people/',
+		);
 		const data: SWAPIResponse<Person> = await response.json();
 		return data;
 	},
@@ -58,7 +60,9 @@ export const getPlanets = api(
 	},
 	async (): Promise<SWAPIResponse<Planet>> => {
 		// Fetch planets data from the external SWAPI.tech API
-		const response: Response = await fetch('https://swapi.tech/api/planets/');
+		const response: Response = await fetch(
+			'https://swapi.tech/api/planets/',
+		);
 		const data: SWAPIResponse<Planet> = await response.json();
 		return data;
 	},
