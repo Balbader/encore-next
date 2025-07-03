@@ -23,9 +23,9 @@ interface SWAPIResponse<T> {
 }
 
 interface Person {
-	uid: string;
+	uid:  string;
 	name: string;
-	url: string;
+	url:  string;
 }
 
 interface Planet {
